@@ -57,3 +57,50 @@ public:
         cout<< "               ";
         cin >> contrasena; // Leer la contraseña
     }
+
+
+
+int main() {
+    // Crear una cuenta con saldo inicial
+    Cuenta cuenta(1000.0);
+
+    int opcion;
+    do {
+    //MENU 
+	cout<<"---------------MENU PRINCIPAL-----------------"<<endl;
+	cout<<" 1 - Ver mi saldo "<<endl;
+	cout<<" 2 - Retirar efectivo "<<endl;
+	cout<<" 3 - Depositar fondos  "<<endl;
+	cout<<" 4 - salir  "<<endl;
+	cout<<" Escriba una opcion :  ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            cuenta.verSaldo();
+            break;
+        case 2: {
+            double monto;
+            cout << "Ingrese el monto a depositar: ";
+            cin >> monto;
+            cuenta.depositar(monto);
+            break;
+        }
+        case 3: {
+            double monto;
+            cout << "Ingrese el monto a retirar: ";
+            cin >> monto;
+            cuenta.retirar(monto);
+            break;
+        }
+        case 4:
+            cout << "Gracias por usar el cajero automatico " << endl;
+            break;
+        default:
+            cout << "Opcion invalida. Intente nuevamente." << endl;
+            break;
+        }
+    } while (opcion != 4)
+    return 0;
+}
+
